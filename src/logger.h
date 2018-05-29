@@ -1,6 +1,6 @@
 #pragma once
 
-namespace core {
+namespace logger {
 
 #define LOGGER_TRACE_FLAG 1
 #define LOGGER_DEBUG_FLAG 1
@@ -60,6 +60,8 @@ protected:
 
 	struct timeval tv2;
 	//struct timezone tz2;
+
+	mutex mutexLogger;
 
 public:
 	Logger();

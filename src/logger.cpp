@@ -1,7 +1,8 @@
 #include "core.h"
+using namespace core;
 #include "logger.h"
 
-namespace core {
+namespace logger {
 
 Logger::Logger() {
 }
@@ -93,7 +94,7 @@ void Logger::out(String flag, String s) {
 }
 
 void Logger::out(String flag, string s) {
-	application->mutexLogger.lock();
+	mutexLogger.lock();
 	if (isEnabled) {
 		if (flag == "SCREEN") isScreen = true;
 		if (!isScreen && fileName == "") return;
@@ -149,7 +150,7 @@ void Logger::out(String flag, string s) {
 		}
 #endif
 	}
-	application->mutexLogger.unlock();
+	mutexLogger.unlock();
 }
 
 void Logger::out(String s) {
